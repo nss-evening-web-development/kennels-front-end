@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import { LocationList } from '../components/location/LocationList'
 import { LocationDetail } from '../components/location/LocationDetail'
 import { AnimalList } from '../components/animal/AnimalList'
@@ -12,14 +12,6 @@ import { Register } from "../components/auth/Register"
 import { useEffect } from "react"
 
 export const ApplicationViews = () => {
-	let navigate = useNavigate();
-	useEffect(() => {
-
-		console.log(localStorage.getItem("kennel_customer"))
-		if (localStorage.getItem("kennels_customer") === null) {
-			return navigate("/login")
-		}
-	}, [navigate])
 	return (
 		<Routes>
 			<Route path="/">
