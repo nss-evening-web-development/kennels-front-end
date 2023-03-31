@@ -19,7 +19,7 @@ export const ApplicationViews = () => {
 		if (localStorage.getItem("kennels_customer") === null) {
 			return navigate("/login")
 		}
-	}, [])
+	}, [navigate])
 	return (
 		<Routes>
 			<Route path="/">
