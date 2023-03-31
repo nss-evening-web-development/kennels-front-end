@@ -9,7 +9,6 @@ import { EmployeeList } from '../components/employee/EmployeeList'
 import { EmployeeDetail } from '../components/employee/EmployeeDetail'
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
-import { useEffect } from "react"
 
 export const ApplicationViews = () => {
 	return (
