@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import { LocationList } from '../components/location/LocationList'
 import { LocationDetail } from '../components/location/LocationDetail'
 import { AnimalList } from '../components/animal/AnimalList'
