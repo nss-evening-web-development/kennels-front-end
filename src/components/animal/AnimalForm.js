@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import { addAnimal, updateAnimal, getAnimalById } from "../../managers/animals"
+import { getCustomers } from "../../managers/customers"
 import { getLocations } from "../../managers/locations"
 import { useParams, useNavigate } from 'react-router-dom'
 
 export const AnimalForm = () => {
   const [locations, setLocations] = useState([])
+  const [customers, setCustomers] = useState([])
   const { animalId } = useParams()
   const [animal, setAnimal] = useState({})
   const navigate = useNavigate()
@@ -16,7 +18,8 @@ export const AnimalForm = () => {
   }
 
   useEffect(() => {
-    getLocations().then(locationsData => setLocations(locationsData))
+    getLocations().then(setLocations)
+    getCustomers().then(setCustomers)
   }, [])
 
   useEffect(() => {
@@ -41,7 +44,7 @@ export const AnimalForm = () => {
           breed: animal.breed,
           locationId: locationId,
           status: animal.status,
-          customerId: parseInt(localStorage.getItem("kennels_customer"))
+          customerId: animal.customer_id
         })
           .then(() => navigate("/animals"))
       } else {
@@ -51,7 +54,7 @@ export const AnimalForm = () => {
           breed: animal.breed,
           locationId: locationId,
           status: animal.status,
-          customerId: parseInt(localStorage.getItem("kennels_customer"))
+          customerId: animal.customer_id
         })
           .then(() => navigate("/animals"))
       }
@@ -91,6 +94,22 @@ export const AnimalForm = () => {
             <option value="0">Select a location</option>
             {
               locations.map(e => (
+                <option key={e.id} value={e.id}>
+                  {e.name}
+                </option>
+              ))
+            }
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="customer_id">Customer: </label>
+          <select name="customer_id" className="form-control"
+            value={animal.customer_id}
+            onChange={handleControlledInputChange}>
+
+            <option value="0">Select a customer</option>
+            {
+              customers.map(e => (
                 <option key={e.id} value={e.id}>
                   {e.name}
                 </option>
