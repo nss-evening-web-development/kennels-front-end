@@ -42,9 +42,9 @@ export const AnimalForm = () => {
           id: animal.id,
           name: animal.name,
           breed: animal.breed,
-          locationId: locationId,
+          locationId: Number(animal.locationId),
           status: animal.status,
-          customerId: animal.customer_id
+          customerId: Number(animal.customer_id)
         })
           .then(() => navigate("/animals"))
       } else {
@@ -52,9 +52,9 @@ export const AnimalForm = () => {
         addAnimal({
           name: animal.name,
           breed: animal.breed,
-          locationId: locationId,
+          locationId: Number(animal.locationId),
           status: animal.status,
-          customerId: animal.customer_id
+          customerId: Number(animal.customer_id)
         })
           .then(() => navigate("/animals"))
       }
