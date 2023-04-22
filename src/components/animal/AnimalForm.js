@@ -42,7 +42,7 @@ export const AnimalForm = () => {
           id: animal.id,
           name: animal.name,
           breed: animal.breed,
-          locationId: Number(animal.locationId),
+          locationId: Number(animal.location_id),
           status: animal.status,
           customerId: Number(animal.customer_id)
         })
