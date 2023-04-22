@@ -16,9 +16,9 @@ export const EmployeeList = () => {
     <div style={{ margin: "0rem 3rem" }}>
       <h1>Employees</h1>
 
-      <button onClick={() => navigate("/employees/create")}>
+      {/* <button onClick={() => navigate("/employees/create")}>
         Add Employee
-      </button>
+      </button> */}
 
       <article className="employees">
         {
